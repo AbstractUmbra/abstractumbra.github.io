@@ -44,3 +44,5 @@ if __name__ == "__main__":
                 (pathlib.Path('/pip') / directory).as_posix(),
                 index_elements
             ))
+
+        print(f"Generated {directory / 'index.html'}")
