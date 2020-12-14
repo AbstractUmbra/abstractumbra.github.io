@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import hashlib
 import pathlib
 
 import mistune
@@ -22,6 +23,13 @@ if __name__ == "__main__":
         paths = list(directory.glob("*"))
         paths.sort(key=lambda p: (not p.is_dir(), p))
 
+        # Generate sha256s
+        sha256s = {}
+        for path in paths:
+            if path.is_file():
+                with open(path, 'rb') as fp:
+                    sha256s[path] = hashlib.sha256(fp.read()).hexdigest()
+
         readme = directory / 'README.md'
 
         if readme.exists():
@@ -35,6 +43,7 @@ if __name__ == "__main__":
             fp.write(TEMPLATE.render(
                 root=(pathlib.Path('/pip') / directory).as_posix(),
                 paths=paths,
+                sha256s=sha256s,
                 readme=readme,
             ))
 
