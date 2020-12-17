@@ -18,7 +18,8 @@ FILETYPE_ICONS = {
 }
 
 ENVIRONMENT.globals.update(
-    FILETYPE_ICONS=FILETYPE_ICONS
+    Path=pathlib.Path,
+    FILETYPE_ICONS=FILETYPE_ICONS,
 )
 
 ROOT = pathlib.Path()
@@ -49,7 +50,7 @@ if __name__ == "__main__":
 
         with open(directory / "index.html", "w", encoding="utf-8") as fp:
             fp.write(TEMPLATE.render(
-                root=(pathlib.Path('/pip') / directory).as_posix(),
+                root=directory,
                 paths=paths,
                 sha256s=sha256s,
                 readme=readme,

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Directory listing for {{ root }}</title>
+        <title>Directory listing for {{ (Path('/pip') / root).as_posix() }}</title>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Source+Code+Pro:wght@500&family=Material+Icons&display=swap" rel="stylesheet">
         <style>
@@ -15,9 +15,15 @@
         </style>
     </head>
     <body>
-        <h1>Directory listing for {{ root }}</h1>
+        <h1>Directory listing for {{ (Path('/pip') / root).as_posix() }}</h1>
         <hr>
         <ul>
+            {%- if root.parent != root %}
+            <li>
+                <span class="material-icons">arrow_upward</span>
+                <a href="https://gorialis.github.io/{{ (Path('pip') / root).parent.as_posix() }}">..</a>
+            </li>
+            {%- endif %}
             {%- for path in paths %}
             <li>
                 <span class="material-icons">{{ 'folder' if path.is_dir() else FILETYPE_ICONS.get(path.suffix.lower(), 'description') }}</span>
