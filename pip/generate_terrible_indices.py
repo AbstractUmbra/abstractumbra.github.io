@@ -13,6 +13,14 @@ ENVIRONMENT = Environment(
 
 TEMPLATE: Template = ENVIRONMENT.get_template('template.html')
 
+FILETYPE_ICONS = {
+    '.whl': 'settings_applications'
+}
+
+ENVIRONMENT.globals.update(
+    FILETYPE_ICONS=FILETYPE_ICONS
+)
+
 ROOT = pathlib.Path()
 
 

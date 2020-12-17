@@ -20,7 +20,7 @@
         <ul>
             {%- for path in paths %}
             <li>
-                <span class="material-icons">{{ 'folder' if path.is_dir() else 'description' }}</span>
+                <span class="material-icons">{{ 'folder' if path.is_dir() else FILETYPE_ICONS.get(path.suffix.lower(), 'description') }}</span>
                 <a href="https://gorialis.github.io/pip/{{ path.as_posix() }}{% if path in sha256s %}#sha256={{ sha256s[path] }}{% endif %}">{{ path.parts[-1] }}</a>
             </li>
             {%- endfor %}
