@@ -1,5 +1,5 @@
 {
-    "latest": 50,
+    "latest": 51,
     "revisions": [
         "16e2c62808ff2489121d8c95024b65c18917dbdf",
         "9cc793a221f78354e91afd17b853598e915298f6",
@@ -50,6 +50,7 @@
         "7f5fb3b5ba0696a0ade71eef3ce9fa720b041a20",
         "5ac4c404a23216faba29105d3d7348d8e139dddf",
         "f3bd3931d962ac9e4a3903d5cf24a1d5768dce3a",
-        "b23ed30a2fa9cc9ba80ede6d38e6527a7559bcfa"
+        "b23ed30a2fa9cc9ba80ede6d38e6527a7559bcfa",
+        "60a684be164b13bfb0c8400a7340bfde012080b8"
     ]
 }
