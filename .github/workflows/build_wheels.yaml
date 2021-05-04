@@ -1,0 +1,71 @@
+name: Build Project Wheels
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "* 0 * * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+
+jobs:
+  build_wheels:
+    name: ${{ matrix.python-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.11"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        name: Install Python on ${{ matrix.python-version }} with ${{ matrix.os }}
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Build wheels
+        run: |
+          pip wheel -w dist -r pip/wheel-requirements.txt
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: |
+            dist/*.whl
+
+
+  cleanup_and_commit:
+    needs: [build_wheels]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        name: Download build wheels
+        with:
+          name: dist
+          path: ~/pip/
+
+      - uses: actions/setup-python@v4
+        name: Install Python
+        with:
+          python-version: "3.11"
+
+      - name: Install pre-requisite deps
+        run: |
+          pip install -U -r pip/requirements.txt
+      - name: Move the files and generate the indices
+        run: |
+          cd pip
+          python cleanup_artifacts.py
+          python generate_terrible_indices.py
+
+      - name: Commit the changes files so pages build
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Generated wheels for ${{ matrix.python-version}}"
+          commit_user_name: "Wheel Builder"
+          commit_user_email: "umbra@abstractumbra.dev"

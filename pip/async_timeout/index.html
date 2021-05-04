@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Directory listing for {{ (Path('/pip') / root).as_posix() }}</title>
+    <title>Directory listing for /pip/async_timeout</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Source+Code+Pro:wght@500&family=Material+Icons&display=swap"
@@ -42,30 +42,25 @@
 </head>
 
 <body>
-    <h1>Directory listing for {{ (Path('/pip') / root).as_posix() }}</h1>
+    <h1>Directory listing for /pip/async_timeout</h1>
     <hr>
     <ul>
-        {%- if root.parent != root %}
         <li>
             <span class="material-icons">arrow_upward</span>
-            <a href="https://abstractumbra.github.io/{{ (Path('pip') / root).parent.as_posix() }}">..</a>
+            <a href="https://abstractumbra.github.io/pip">..</a>
         </li>
-        {%- endif %}
-        {%- for path in paths %}
         <li>
-            <span class="material-icons">{{ 'folder' if path.is_dir() else FILETYPE_ICONS.get(path.suffix.lower(),
-                'description') }}</span>
+            <span class="material-icons">settings_applications</span>
             <a
-                href="https://abstractumbra.github.io/pip/{{ path.as_posix() }}{% if path in sha256s %}#sha256={{ sha256s[path] }}{% endif %}">{{
-                path.parts[-1] }}</a>
+                href="https://abstractumbra.github.io/pip/async_timeout/async_timeout-4.0.2-py3-none-any.whl#sha256=8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c">async_timeout-4.0.2-py3-none-any.whl</a>
         </li>
-        {%- endfor %}
+        <li>
+            <span class="material-icons">description</span>
+            <a
+                href="https://abstractumbra.github.io/pip/async_timeout/index.html#sha256=59f892f15017f3889c43af2398f9ae7b73a0bf88fcb82f22d96cb4594325879e">index.html</a>
+        </li>
     </ul>
     <hr>
-    {%- if readme %}
-    {{ readme | indent(8) }}
-    {%- endif %}
 </body>
 
 </html>
-{{ '' }}

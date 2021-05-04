@@ -6,16 +6,11 @@ import pathlib
 import mistune
 from jinja2 import Environment, FileSystemLoader, Template
 
+ENVIRONMENT = Environment(loader=FileSystemLoader("."))
 
-ENVIRONMENT = Environment(
-    loader=FileSystemLoader('.')
-)
+TEMPLATE: Template = ENVIRONMENT.get_template("template.html")
 
-TEMPLATE: Template = ENVIRONMENT.get_template('template.html')
-
-FILETYPE_ICONS = {
-    '.whl': 'settings_applications'
-}
+FILETYPE_ICONS = {".whl": "settings_applications"}
 
 ENVIRONMENT.globals.update(
     Path=pathlib.Path,
@@ -36,24 +31,26 @@ if __name__ == "__main__":
         sha256s = {}
         for path in paths:
             if path.is_file():
-                with open(path, 'rb') as fp:
+                with open(path, "rb") as fp:
                     sha256s[path] = hashlib.sha256(fp.read()).hexdigest()
 
-        readme = directory / 'README.md'
+        readme = directory / "README.md"
 
         if readme.exists():
             # Render the README
-            with open(readme, 'r', encoding='utf-8') as fp:
+            with open(readme, "r", encoding="utf-8") as fp:
                 readme = mistune.markdown(fp.read())
         else:
             readme = None
 
         with open(directory / "index.html", "w", encoding="utf-8") as fp:
-            fp.write(TEMPLATE.render(
-                root=directory,
-                paths=paths,
-                sha256s=sha256s,
-                readme=readme,
-            ))
+            fp.write(
+                TEMPLATE.render(
+                    root=directory,
+                    paths=paths,
+                    sha256s=sha256s,
+                    readme=readme,
+                )
+            )
 
         print(f"Generated {directory / 'index.html'}")

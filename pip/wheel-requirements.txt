@@ -1,0 +1,4 @@
+aiohttp
+multidict
+frozenlist
+yarl

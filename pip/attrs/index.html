@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Directory listing for {{ (Path('/pip') / root).as_posix() }}</title>
+    <title>Directory listing for /pip/attrs</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Source+Code+Pro:wght@500&family=Material+Icons&display=swap"
@@ -42,30 +42,25 @@
 </head>
 
 <body>
-    <h1>Directory listing for {{ (Path('/pip') / root).as_posix() }}</h1>
+    <h1>Directory listing for /pip/attrs</h1>
     <hr>
     <ul>
-        {%- if root.parent != root %}
         <li>
             <span class="material-icons">arrow_upward</span>
-            <a href="https://abstractumbra.github.io/{{ (Path('pip') / root).parent.as_posix() }}">..</a>
+            <a href="https://abstractumbra.github.io/pip">..</a>
         </li>
-        {%- endif %}
-        {%- for path in paths %}
         <li>
-            <span class="material-icons">{{ 'folder' if path.is_dir() else FILETYPE_ICONS.get(path.suffix.lower(),
-                'description') }}</span>
+            <span class="material-icons">settings_applications</span>
             <a
-                href="https://abstractumbra.github.io/pip/{{ path.as_posix() }}{% if path in sha256s %}#sha256={{ sha256s[path] }}{% endif %}">{{
-                path.parts[-1] }}</a>
+                href="https://abstractumbra.github.io/pip/attrs/attrs-22.1.0-py2.py3-none-any.whl#sha256=86efa402f67bf2df34f51a335487cf46b1ec130d02b8d39fd248abfd30da551c">attrs-22.1.0-py2.py3-none-any.whl</a>
         </li>
-        {%- endfor %}
+        <li>
+            <span class="material-icons">description</span>
+            <a
+                href="https://abstractumbra.github.io/pip/attrs/index.html#sha256=ddfcf087eb3c114d30fdecd11b00a3767b8b28d00f5e25583bbb511c66fa1226">index.html</a>
+        </li>
     </ul>
     <hr>
-    {%- if readme %}
-    {{ readme | indent(8) }}
-    {%- endif %}
 </body>
 
 </html>
-{{ '' }}

@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Directory listing for {{ (Path('/pip') / root).as_posix() }}</title>
+    <title>Directory listing for /pip/charset_normalizer</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Source+Code+Pro:wght@500&family=Material+Icons&display=swap"
@@ -42,30 +42,25 @@
 </head>
 
 <body>
-    <h1>Directory listing for {{ (Path('/pip') / root).as_posix() }}</h1>
+    <h1>Directory listing for /pip/charset_normalizer</h1>
     <hr>
     <ul>
-        {%- if root.parent != root %}
         <li>
             <span class="material-icons">arrow_upward</span>
-            <a href="https://abstractumbra.github.io/{{ (Path('pip') / root).parent.as_posix() }}">..</a>
+            <a href="https://abstractumbra.github.io/pip">..</a>
         </li>
-        {%- endif %}
-        {%- for path in paths %}
         <li>
-            <span class="material-icons">{{ 'folder' if path.is_dir() else FILETYPE_ICONS.get(path.suffix.lower(),
-                'description') }}</span>
+            <span class="material-icons">settings_applications</span>
             <a
-                href="https://abstractumbra.github.io/pip/{{ path.as_posix() }}{% if path in sha256s %}#sha256={{ sha256s[path] }}{% endif %}">{{
-                path.parts[-1] }}</a>
+                href="https://abstractumbra.github.io/pip/charset_normalizer/charset_normalizer-2.1.1-py3-none-any.whl#sha256=83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f">charset_normalizer-2.1.1-py3-none-any.whl</a>
         </li>
-        {%- endfor %}
+        <li>
+            <span class="material-icons">description</span>
+            <a
+                href="https://abstractumbra.github.io/pip/charset_normalizer/index.html#sha256=915b7340af89a3ef409a97e983bc52b2d481d65e394e232613fe5ce28bfa9f7f">index.html</a>
+        </li>
     </ul>
     <hr>
-    {%- if readme %}
-    {{ readme | indent(8) }}
-    {%- endif %}
 </body>
 
 </html>
-{{ '' }}
