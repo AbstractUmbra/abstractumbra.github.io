@@ -1,4 +1,2 @@
-aiohttp
-multidict
-frozenlist
-yarl
+discord.py[speed,voice]
+asyncpg

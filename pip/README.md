@@ -9,5 +9,5 @@ Gorialis styled the page originally based on how Apache automatically generates 
 To allow pip to download from this index, you can use the `--extra-index-url` flag, e.g.:
 
 ```bash
-pip install discord.py[voice] --extra-index-url https://abstractmbra.github.io/pip/
+pip install discord.py[voice] --extra-index-url https://abstractumbra.github.io/pip/
 ```
