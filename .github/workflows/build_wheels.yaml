@@ -59,9 +59,9 @@ jobs:
           pip install -U -r pip/requirements.txt
       - name: Move the files and generate the indices
         run: |
-          cd pip
           python cleanup_artifacts.py
           python generate_terrible_indices.py
+        working-directory: ./pip
 
       - name: Commit the changes files so pages build
         uses: stefanzweifel/git-auto-commit-action@v4
