@@ -2,3 +2,6 @@ aiohttp
 multidict
 frozenlist
 yarl
+brotli
+orjson
+pycares
