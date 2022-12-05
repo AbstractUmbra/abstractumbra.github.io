@@ -57,10 +57,16 @@ jobs:
 
       - name: Install pre-requisite deps
         run: |
-          pip install -U -r pip/requirements.txt
-      - name: Move the files and generate the indices
+          pip install -U -r requirements.txt
+        working-directory: ./pip
+
+      - name: Cleanup the artifacts
         run: |
           python cleanup_artifacts.py
+        working-directory: ./pip
+
+      - name: Generate the indices
+        run: |
           python generate_terrible_indices.py
         working-directory: ./pip
 
