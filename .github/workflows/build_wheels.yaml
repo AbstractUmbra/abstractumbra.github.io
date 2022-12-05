@@ -54,6 +54,7 @@ jobs:
         name: Install Python
         with:
           python-version: "3.11"
+          cache: pip
 
       - name: Install pre-requisite deps
         run: |
