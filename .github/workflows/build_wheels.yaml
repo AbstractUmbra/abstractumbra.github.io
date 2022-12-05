@@ -48,7 +48,7 @@ jobs:
         name: Download built wheels
         with:
           name: dist
-          path: ~/pip/
+          path: ./pip/
 
       - uses: actions/setup-python@v4
         name: Install Python
