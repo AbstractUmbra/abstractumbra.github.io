@@ -44,10 +44,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       - name: Revert last commit if it was GitHub Actions
         run: |
-          # Revert the last commit if it was GitHub Actions
           if [[ "$(git show -s --format='%ae' HEAD)" == *"github-actions"* ]]; then
             git reset --hard HEAD^;
           fi

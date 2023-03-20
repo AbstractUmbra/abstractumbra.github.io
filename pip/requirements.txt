@@ -1,2 +1,4 @@
 Jinja2 >= 2.11.2
 mistune >= 0.8.4, < 1.0
+pip
+wheel
