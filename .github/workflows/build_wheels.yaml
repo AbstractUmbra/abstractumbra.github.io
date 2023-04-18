@@ -28,11 +28,11 @@ jobs:
 
       - name: Python Prereqs
         run: |
-          pip install -U wheel setuptools pip
+          python -m pip install -U wheel setuptools pip Cython
 
       - name: Build wheels
         run: |
-          pip wheel -w dist -r pip/wheel-requirements.txt
+          python -m pip wheel -w dist -r pip/wheel-requirements.txt
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
