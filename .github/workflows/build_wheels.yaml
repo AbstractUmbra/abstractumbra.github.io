@@ -26,6 +26,17 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Ubuntu extra deps
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt update -y
+          audo apt install portaudio19-dev
+
+      - name: MacOS extra deps
+        if: matrix.os == 'macos-12'
+        run: |
+          brew install portaudio
+
       - name: Python Prereqs
         run: |
           python -m pip install -U wheel setuptools pip Cython
