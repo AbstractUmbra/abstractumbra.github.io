@@ -28,18 +28,18 @@ if __name__ == "__main__":
         paths.sort(key=lambda p: (not p.is_dir(), p))
 
         # Generate sha256s
-        sha256s = {}
+        sha256s: dict[pathlib.Path, str] = {}
         for path in paths:
             if path.is_file():
                 with open(path, "rb") as fp:
                     sha256s[path] = hashlib.sha256(fp.read()).hexdigest()
 
-        readme = directory / "README.md"
+        readme_file = directory / "README.md"
 
-        if readme.exists():
+        if readme_file.exists():
             # Render the README
-            with open(readme, "r", encoding="utf-8") as fp:
-                readme = mistune.markdown(fp.read())
+            with readme_file.open("r", encoding="utf-8") as fp:
+                readme: str | None = mistune.markdown(fp.read())
         else:
             readme = None
 
