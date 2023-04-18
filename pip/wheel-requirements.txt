@@ -1,2 +1,3 @@
 discord.py[speed,voice]
 asyncpg
+cchardet
