@@ -26,6 +26,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Python Prereqs
+        run: |
+          pip install -U wheel setuptools pip
+
       - name: Build wheels
         run: |
           pip wheel -w dist -r pip/wheel-requirements.txt
@@ -36,7 +40,6 @@ jobs:
           name: dist
           path: |
             dist/*.whl
-
 
   cleanup_and_commit:
     needs: [build_wheels]
