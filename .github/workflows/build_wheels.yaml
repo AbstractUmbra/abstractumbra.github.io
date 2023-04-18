@@ -30,7 +30,7 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt update -y
-          audo apt install portaudio19-dev
+          sudo apt install portaudio19-dev
 
       - name: MacOS extra deps
         if: matrix.os == 'macos-12'
