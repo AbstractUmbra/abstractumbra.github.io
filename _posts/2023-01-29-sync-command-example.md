@@ -48,3 +48,6 @@ async def sync(
 {% endhighlight %}
 
 The code above is freely given by me, and entirely unlicensed. Do what you will with it, I only ask if you make improvements then you share it with the rest of us!
+
+Editor's note:-
+Please feel free to switch out the type annotations for `commands.Context` to your `Context` subclass if you have one. The rest of the annotations actually do things at runtime within d.py!
