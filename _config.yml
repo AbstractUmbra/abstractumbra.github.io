@@ -23,9 +23,9 @@ description: >-
   My site for random things and stuff. Including a custom pip index and walkthroughs, both for discord.py!
 domain: abstractumbra.github.io
 email: umbra@abstractumbra.dev
-github_username:  AbstractUmbra
-plugins:
-  - jekyll-feed
+github_username: AbstractUmbra
+# plugins:
+#   - jekyll-feed
 theme: minima
 title: "Umbra's Rantings"
 
