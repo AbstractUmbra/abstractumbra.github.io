@@ -9,7 +9,7 @@ Hey there, welcome to the examples and explanations of the discord.py applicatio
 
 In these pages we'll cover everything from regular ol' slash commands all the way to Modals and the other component goodies. But for now we'll just cover the very basics.
 
-## CommandTree
+## CommandTree {#cmd-tree}
 
 The [CommandTree][command-tree] will be your "controller" of your application commands.
 This object controls your "local" copy of the commands, versus what Discord has.
