@@ -68,6 +68,7 @@ Let's see them out:-
 - `spec: Optional[Literal["~", "*", "^"]]`
   - This looks confusing but it's pretty simple to read. `Optional` means that passing a value here is... optional. The `= None` will make this parameter equal to `None` if no argument is passed.
   - `Literal["~", "*", "^"]` is the real converter. This means it accepts ONLY one of these 3 values (or None/no value, as above covered). Each of these 3 values does something unique within the command body, and yes, discord.py does respect `Literal` and will raise an error if you pass something erroneus.
+    - ... However, since we have it wrapped in `Optional`, it allows no value to be passed. So no value, or one of the 3 within.
 
 ### Command body
 
