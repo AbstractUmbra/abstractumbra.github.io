@@ -2,7 +2,7 @@
 layout: post
 title: "Umbra's Sync Command"
 date: 2023-01-29 12:00:00 +0100
-categories: d.py discord.py
+categories: discord.py
 ---
 I curated and created a pretty full-featured command for [syncing]({% post_url 2023-01-30-app-command-basics %}#syncing) your CommandTree, you can see it here:
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Application command basics"
 date: 2023-01-30 12:00:00 +0100
-categories: d.py discord.py
+categories: discord.py
 ---
 
 Hey there, welcome to the examples and explanations of the discord.py application (or 'slash') command system.
