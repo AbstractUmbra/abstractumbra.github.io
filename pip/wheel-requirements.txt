@@ -2,3 +2,4 @@ discord.py[speed,voice]
 asyncpg
 cchardet
 ciso8601
+pyaudio
