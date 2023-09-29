@@ -2,7 +2,7 @@
 
 ## Pip index
 
-![PythonVersionSupport](https://img.shields.io/badge/Supported%20Python%20Versions-3.10%20|%203.11-blue|%203.12-blue)
+![PythonVersionSupport](https://img.shields.io/badge/Supported%20Python%20Versions-3.10%20|%203.11-blue)
 
 [This project](pip) is a fork of [Gorialis' work](https://github.com/Gorialis/gorialis.github.io) as I wanted to update the pip index for some wheels on later Python versions.
 All rights and licensing goes to them.
