@@ -42,7 +42,7 @@ There are limited places where you can "install" these commands. These are:-
 "Per User" means that you can install an application to your user profile, which you - and only you - can use.
 You can use this in any guild, any channel, any DM, so long as it [allowed in the context]({% post_url 2024-04-11-user-installable-applications %}#user-apps-contexts).
 
-"Per Guild" means you can install an application within a guild which you have the Manage Guild (#TODO, confirm?) permission in. Anyone in this guild can use this application command, so long as:-
+"Per Guild" means you can install an application within a guild which you have the Manage Guild permission in. Anyone in this guild can use this application command, so long as:-
 - It is in the allowed context.
 - They have permission to execute these commands as per the usual Application Command permissions.
 
@@ -66,7 +66,7 @@ This means that a general user can install this application to their account for
 
 > Developer creates a guild and user installable application, with the allowed context of guilds.
 
-This means that a Guild manager *or* general user can install this command -  Guild managers require the [`Manage Guild`](#TODO) permission to install applications - and general users can install it to their account for usage.
+This means that a Guild manager *or* general user can install this command -  Guild managers require the Manage Guild permission to install applications - and general users can install it to their account for usage.
 This application can *only* be used within guilds.
 
 ## Creating installable commands
