@@ -18,20 +18,29 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-baseurl: "" # the subpath of your site, e.g. /blog
-description: >-
-  My site for random things and stuff. Including a custom pip index and walkthroughs, both for discord.py!
-domain: abstractumbra.github.io
-email: umbra@abstractumbra.dev
-github_username: AbstractUmbra
-# plugins:
-#   - jekyll-feed
-theme: minima
 title: "Umbra's Rantings"
+author:
+  name: AbstractUmbra
+  email: umbra@abstractumbra.dev
+
+description: >
+  My site for random things and stuff. Including a custom pip index and walkthroughs, both for discord.py!
+
+domain: abstractumbra.github.io
+
+plugins:
+  - jekyll-remote-theme
+remote_theme: jekyll/minima@master
+minima:
+  skin: auto
+  social_links:
+    - { platform: github, user_url: "https://github.com/AbstractUmbra" }
+    - { platform: twitter, user_url: "https://twitter.com/AbstractUmbra" }
 
 # Build settings
 # twitter_username:
 url: "https://about.abstractumbra.dev" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
