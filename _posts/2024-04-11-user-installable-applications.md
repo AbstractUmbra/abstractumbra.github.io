@@ -164,4 +164,4 @@ Here's the relevant documentation for all 3 items:-
 
 ### Final notes
 
-As always, don't forget to [sync]({% post_url 2023-01-30-app-command-basics %}#syncing) as normal to make your apps installable after code changes, and don't forget to join [discord.py](https://discord.gg/discord.py) if you need more help.
+As always, don't forget to [sync]({% post_url 2023-01-30-app-command-basics %}#syncing) as normal to make your apps installable after code changes, and don't forget to join [discord.py](https://discord.gg/dpy) if you need more help.
