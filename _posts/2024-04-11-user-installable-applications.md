@@ -166,6 +166,14 @@ Here's the relevant documentation for all 3 items:-
 - [`AppCommandContext`](https://discordpy.readthedocs.io/en/stable/interactions/api.html#discord.app_commands.AppCommandContext)
 - [`AppInstallationType`](https://discordpy.readthedocs.io/en/stable/interactions/api.html#discord.app_commands.AppInstallationType)
 
+## Things to keep in mind.
+
+### Permissions
+If an application is installed *both* to your user **and** the current guild you're using it in, then guild permissions may override your ability to use your user installed commands from the application.
+
+### Available information
+When using processing a user installed command, the only information available to you is what's contained on the interaction itself. You will *not* receive any extra information that you may be used to having such as guild members, guild roles, etc.
+
 ### Final notes
 
 As always, don't forget to [sync]({% post_url 2023-01-30-app-command-basics %}#syncing) as normal to make your apps installable after code changes, and don't forget to join [discord.py](https://discord.gg/dpy) if you need more help.
