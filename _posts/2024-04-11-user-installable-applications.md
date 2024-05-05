@@ -31,6 +31,10 @@ Discord.py always like to be convenient for it's userbase, and as such we've cor
   - Controls the allowed installation methods.
 - [`@allowed_contexts()`](https://discordpy.readthedocs.io/en/stable/interactions/api.html#discord.app_commands.allowed_contexts)
   - Controls the allowed installation contexts.
+- [`Interaction.is_user_integration()`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.Interaction.is_user_integration)
+  - Determines if the interaction came from a user installed command.
+- [`Interaction.is_guild_integration()`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.Interaction.is_guild_integration)
+  - Determines if the interaction came from a guild installed command.
 
 ## Install locations {#user-apps-locations}
 
@@ -56,15 +60,15 @@ Contexts are where installed apps are allowed to be used. In essence, the develo
 
 For some added clarity, let's imagine the below scenarios and how they work:-
 
-> Developer creates a user-installable application, with the allowed context of guild. and dms.
+> Developer creates a user-installable application with allowed contexts of guilds and dms.
 
 This means that a general user can install this application to their account for their personal use, but they cannot use this application within a group chat or group dm. Only within guilds and DMs.
 
-> Developer creates a user-installable application, with the allowed context of private channels.
+> Developer creates a user-installable application with allowed context of private channels.
 
 This means that a general user can install this application to their account for their personal use, but they can *only* use this application within a group chat/dm.
 
-> Developer creates a guild and user installable application, with the allowed context of guilds.
+> Developer creates a guild and user installable application with the allowed context of guilds.
 
 This means that a Guild manager *or* general user can install this command -  Guild managers require the Manage Guild permission to install applications - and general users can install it to their account for usage.
 This application can *only* be used within guilds.
