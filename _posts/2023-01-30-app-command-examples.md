@@ -207,7 +207,7 @@ We can also subclass Group to add our commands within there:-
 import discord
 from discord import app_commands
 
-# the discord-side check decorators (guild_only, allowed_installs, etc) can be used on the class like so:-
+# the discord-side check decorators (app_commands.guild_only, app_commands.allowed_installs, etc) can be used on the class like so:-
 @app_commands.guild_only()
 # these will apply to ALL subcommands, subcommands cannot have invidual perms!
 class Group(app_commands.Group):
