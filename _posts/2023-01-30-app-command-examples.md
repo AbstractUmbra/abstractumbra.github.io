@@ -198,27 +198,21 @@ async def setup(bot: commands.Bot) -> None:
 We can also subclass Group to add our commands within there:-
 
 {% highlight python %}
-# This an App command group.
-# You can nest these down a few levels, like so:-
+# you can nest these down a few levels, like so:-
 
 # /group subcommand (up to 25)
 # /group subcommand group
 # /group subcommand group subcommand (up to 25).
 
-
-# this example shows one way to do this, subclassing
-# the other is constructing an instance of app_commands.Group()
-# that one is shown in "free_function_commands-py"
-
 import discord
 from discord import app_commands
 
-# the @app_commands.guilds and @app_commands.default_permissions decorators (also including checks) can be used above the class.
-# these will apply to ALL subcommands, subcommands cannot have invidual perms!
+# the discord-side check decorators (guild_only, allowed_installs, etc) can be used on the class like so:-
 @app_commands.guild_only()
+# these will apply to ALL subcommands, subcommands cannot have invidual perms!
 class Group(app_commands.Group):
 
-  # subcommand of Group
+  # subcommand of Group (/group my_subcommand)
   @app_commands.command()
   async def my_subcommand(self, interaction: discord.Interaction) -> None:
     await interaction.response.send_message("hello from the subcommand!")
@@ -226,7 +220,7 @@ class Group(app_commands.Group):
   # nested group command
   group2 = app_commands.Group(name="group2", description="This a nested group!")
 
-  # subcommand of group2
+  # subcommand of group2 (/group group2 my_second_group_command)
   @group2.command()
   async def my_second_group_command(self, interaction: discord.Interaction) -> None:
     await interaction.response.send_message("hello from the second subcommand!")
