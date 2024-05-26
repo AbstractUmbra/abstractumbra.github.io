@@ -209,7 +209,7 @@ from discord import app_commands
 
 # the discord-side check decorators (app_commands.guild_only, app_commands.allowed_installs, etc) can be used on the class like so:-
 @app_commands.guild_only()
-# these will apply to ALL subcommands, subcommands cannot have invidual perms!
+# these will apply to ALL subcommands (and groups), subcommands cannot have invidual perms!
 class Group(app_commands.Group):
 
   # subcommand of Group (/group my_subcommand)
