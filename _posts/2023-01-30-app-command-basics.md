@@ -11,8 +11,25 @@ In these pages we'll cover everything from regular ol' slash commands all the wa
 
 ## CommandTree {#cmd-tree}
 
+### What it is, and how it works
 The [CommandTree][command-tree] will be your "controller" of your application commands.
 This object controls your "local" copy of the commands, versus what Discord has.
+
+For ease, there is already a `CommandTree` instead present on `commands.Bot`, under the `.tree` attriute.
+This means that `@bot.tree.command()` will work as soon as you have a valid `commands.Bot` instance.
+
+The same cannot be said for `discord.Client`, but it's easy enough to add:-
+```py
+import discord
+from discord import app_commands
+
+client = discord.Client(intents=...)
+client.tree = app_commands.CommandTree(client)
+```
+Which will result in you have a `.tree` attribute on your Client too.
+Let's get on with explaining the CommandTree...
+
+### What it does
 
 The slash command system requires that Discord has a copy of your commands.
 This does **not** include the Command body, e.g:-
