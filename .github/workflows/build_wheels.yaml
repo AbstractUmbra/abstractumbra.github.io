@@ -50,7 +50,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: dist
+          name: dist-${{matrix.os}}-${{matrix.python-version}}
           path: |
             dist/*.whl
 
@@ -72,7 +72,6 @@ jobs:
       - uses: actions/download-artifact@v4
         name: Download built wheels
         with:
-          name: dist
           path: ./pip/
 
       - uses: actions/setup-python@v5
@@ -88,6 +87,7 @@ jobs:
 
       - name: Cleanup the artifacts
         run: |
+          find . -name 'dist-*' -exec unzip '{}' \;
           python cleanup_artifacts.py
         working-directory: ./pip
 
