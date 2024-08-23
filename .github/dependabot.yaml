@@ -1,6 +1,15 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
+    directory: "/pip"
+    schedule:
+      interval: "weekly"
+    reviewers:
+      - "AbstractUmbra"
+
+  - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "weekly"
+    reviewers:
+      - "AbstractUmbra"
