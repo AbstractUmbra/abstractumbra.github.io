@@ -153,6 +153,7 @@ class MyCog(commands.Cog):
             allowed_contexts=app_commands.AppCommandContext(guild=True, dm_channel=True, private_channel=True),
             allowed_installs=app_commands.AppInstallationType(guild=False, user=True)
         )
+        self.bot.tree.add_command(self.meme_context_menu)
 
     async def meme_callback(self, interaction: discord.Interaction, user: discord.User) -> None:
         ...
