@@ -77,9 +77,6 @@ jobs:
           path: ./pip/
           merge-multiple: true
 
-      - name: '[test] ls'
-        run: ls -AlFh ./pip/
-
       - uses: actions/setup-python@v5
         name: Install Python
         with:
