@@ -33,9 +33,14 @@ plugins:
 remote_theme: jekyll/minima@master
 minima:
   skin: auto
+  show_excerpts: true
   social_links:
-    - { platform: github, user_url: "https://github.com/AbstractUmbra" }
-    - { platform: twitter, user_url: "https://twitter.com/AbstractUmbra" }
+    - title: GitHub
+      icon: github
+      url: "https://github.com/AbstractUmbra"
+    - title: Twitter
+      icon: x-twitter
+      url: "https://twitter.com/AbstractUmbra"
 
 # Build settings
 # twitter_username:
