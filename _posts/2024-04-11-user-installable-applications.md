@@ -4,9 +4,7 @@ title: "User Installable Applications"
 date: 2024-04-11 12:00:00 +0100
 categories: discord.py
 ---
-Hello!
-
-This post is all about User Installable Applications and how to set them up.
+Hello! This post is all about User Installable Applications and how to set them up.
 
 Let's get into the hows and whats, as well as limitations.
 
