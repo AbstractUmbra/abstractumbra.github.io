@@ -31,9 +31,10 @@ domain: abstractumbra.github.io
 plugins:
   - jekyll-remote-theme
 remote_theme: jekyll/minima@master
+
 minima:
   skin: auto
-  show_excerpts: true
+  show_excerpts: false # set to `true` when select page is fixed
   social_links:
     - title: GitHub
       icon: github
@@ -43,7 +44,6 @@ minima:
       url: "https://twitter.com/AbstractUmbra"
 
 # Build settings
-# twitter_username:
 url: "https://about.abstractumbra.dev" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 # Exclude from processing.
