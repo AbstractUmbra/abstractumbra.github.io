@@ -75,6 +75,37 @@ This application can *only* be used within guilds.
 
 *Note*: I will be using explicit definitions in decorators to show all options, but you as a user can allow the defaults.
 
+### Globally setting installation and contexts {#global-install-context}
+
+If you are making an application in which all commands/menus will be user installable, instead of setting the decorator(s) on each callback, you can set it globally:-
+
+If you're using `discord.Client`:-
+{% highlight python %}
+import discord
+
+client = discord.Client(...)
+tree = app_commands.CommandTree(
+  allowed_contexts=discord.app_commands.AppCommandContext(guild=True, dm_channel=True, private_channel=True),
+  allowed_installs=discord.app_commands.AppInstallationType(guild=True, user=True)
+)
+
+client.tree = tree
+{% endhighlight %}
+
+Or if you're using `commands.Bot`:-
+{% highlight python %}
+import discord
+from discord.ext import commands
+
+bot = commands.Bot(
+  ...,
+  allowed_contexts=discord.app_commands.AppCommandContext(guild=True, dm_channel=True, private_channel=True),
+  allowed_installs=discord.app_commands.AppInstallationType(guild=True, user=True),
+)
+{% endhighlight %}
+
+You can view the documentation on the `AppInstallationType` [here](https://discordpy.readthedocs.io/en/stable/interactions/api.html#discord.app_commands.AppInstallationType) and the `AppCommandContext` [here](https://discordpy.readthedocs.io/en/stable/interactions/api.html#discord.app_commands.AppCommandContext).
+
 ### Slash - user installable, executable anywhere. {#slash-user-unlocked}
 
 Let's define a command that says hello to the executing user, and make it user installable, but executable anywhere.
