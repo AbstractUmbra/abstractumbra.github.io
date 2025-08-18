@@ -3,6 +3,8 @@ layout: post
 title: "Components V2"
 date: 2025-08-17 12:00:00 +0100
 categories: discord.py
+author:
+  - pipythonmc
 ---
 Discord.py 2.6 brings support for Discord's new components system (known as "Components V2"), which allows you to mix text, media, and interactive components when composing bot messages.
 
@@ -151,5 +153,3 @@ class MyCounterLayout(discord.ui.LayoutView):
 
 If the same buttons/select menus with the same `custom_id`s are present in a LayoutView, migrating from a persistent View to a persistent LayoutView should work as you expect. In fact, Discord allows you to edit messages that did not use new components to use new components, as long as you clear `content`/`embeds` by setting it to None in your edit. However, you cannot edit a message back to using old components.
 
-
-This page was written by pipythonmc.
