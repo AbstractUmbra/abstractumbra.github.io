@@ -36,11 +36,10 @@ class Layout(discord.ui.LayoutView):
 ## Top-level components
 
 These components can be placed directly in a `LayoutView`.
-<!-- (placed in order of usefulness, except container which is.. different) -->
 
 ### Text display
 
-[`ui.TextDisplay`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.TextDisplay) allows placing regular text content in your layout. Markdown is supported. Note that mentions placed in the text will ping users/roles/everyone even if the text display is within a [container](#container).
+[`ui.TextDisplay`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.TextDisplay) allows placing regular text content in your layout. Markdown is supported. Note that mentions placed in the text will ping users/roles/everyone even if the text display is within a [container](#container). The character limit (4000 at time of writing) is shared across all text displays in the same LayoutView.
 
 ## Action row {#action-row}
 
@@ -62,26 +61,37 @@ section = discord.ui.Section(
 
 ### Separator
 
-[`ui.Separator`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.Separator) adds visual spacing between components. Whether a line is visible, and the amount of space (large or small), can be set.
+[`ui.Separator`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.Separator) adds visual spacing between components. You can set the amount of space taken (large or small) and whether a line should be visible to the user.
 
 ### Media Gallery
 
-[`discord.ui.MediaGallery`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.MediaGallery) allows displaying images and videos in a gallery. Entries are specified as [`discord.MediaGalleryItem`](https://discordpy.readthedocs.io/en/latest/api.html#discord.MediaGalleryItem)s. The current limit is 1-10 media per gallery.
+[`discord.ui.MediaGallery`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.MediaGallery) allows displaying images and videos in a gallery. Entries are specified as [`discord.MediaGalleryItem`](https://discordpy.readthedocs.io/en/latest/api.html#discord.MediaGalleryItem)s. The current limit is 1-10 media items per gallery.
+
+As a shortcut, you can pass a `discord.File` object into `MediaGalleryItem`. The file still needs to be specified when sending your message.
 
 ```py
+file1 = discord.File("secret_message.png")
+file2 = discord.File("example.jpg")
+
 gallery = discord.ui.MediaGallery(
     discord.MediaGalleryItem("https://some.image/url.png", description = "Alt text"),
     discord.MediaGalleryItem("attachment://secret_message.png", spoiler = True),
+    discord.MediaGalleryItem(file2),
 )
+
+# later:
+await channel.send(view = view, files = [file1, file2])
 ```
 
 ### File
 
-[`discord.ui.File`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.File) allows displaying files in your message. These will not display a preview. Files can also be marked as a spoiler. Note that your [`discord.File`](https://discordpy.readthedocs.io/en/latest/api.html#discord.File) needs to be included when sending the message.
+[`discord.ui.File`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.File) allows displaying files in your message. These will not display a preview. Note that your [`discord.File`](https://discordpy.readthedocs.io/en/latest/api.html#discord.File) needs to be included when sending the message.
+
+Similar to `MediaGalleryItem` in the previous section, `discord.ui.File` also supports passing `discord.File` as the `media` argument.
 
 ### Container {#container}
 
-[`discord.ui.Container`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.Container) can contain other top-level components. Visually, it displays a border similar to an embed, and can have an accent color. Containers can be marked as a spoiler.
+[`discord.ui.Container`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.Container) can contain other top-level components. Visually, it displays a border similar to an embed with an optional accent color.
 
 ```py
 class MyContainer(discord.ui.Container):
@@ -103,7 +113,7 @@ You might be interested in reading more about [the different types of select men
 
 ### Thumbnail {#thumbnail}
 
-[`discord.ui.Thumbnail`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.Thumbnail) represents an image displayed on the right of a [section](#section). They can be marked as a spoiler.
+[`discord.ui.Thumbnail`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.Thumbnail) represents an image displayed on the right of a [section](#section).
 
 ```py
 section = discord.ui.Section(
@@ -114,7 +124,7 @@ section = discord.ui.Section(
 
 ## Using with webhooks
 
-Non-bot webhooks can now send non-interactive components by adding `?with_components=true` to the end of the webhook url.
+Non-bot webhooks can now send non-interactive components by passing a `view` to [`Webhook.send`](https://discordpy.readthedocs.io/en/latest/api.html#discord.Webhook.send).
 
 ## Component ids
 
