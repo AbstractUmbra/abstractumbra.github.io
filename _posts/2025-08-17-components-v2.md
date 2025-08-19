@@ -41,7 +41,7 @@ These components can be placed directly in a `LayoutView`.
 
 [`ui.TextDisplay`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.TextDisplay) allows placing regular text content in your layout. Markdown is supported. Note that mentions placed in the text will ping users/roles/everyone even if the text display is within a [container](#container). The character limit (4000 at time of writing) is shared across all text displays in the same LayoutView.
 
-## Action row {#action-row}
+### Action row {#action-row}
 
 [`ui.ActionRow`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.ActionRow) is a container for [buttons and select menus](#buttons-selects). It can be subclassed and used with [`@ui.button`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.button)/[`@ui.select`](https://discordpy.readthedocs.io/en/latest/interactions/api.html#discord.ui.select) or directly in a `LayoutView` as shown by the example above.
 
