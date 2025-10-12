@@ -35,7 +35,7 @@ jobs:
           sudo apt install portaudio19-dev
 
       - name: MacOS extra deps
-        if: matrix.os == 'macos-13' || matrix.os == 'macos-latest'
+        if: matrix.os == 'macos-15-intel' || matrix.os == 'macos-latest'
         run: |
           brew install portaudio
 
