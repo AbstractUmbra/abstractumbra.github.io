@@ -2,8 +2,15 @@ import pathlib
 
 CURRENT_DIR = pathlib.Path(__file__).parent
 
+SPECIAL_CASES: dict[str, str] = {"discord_py": "discord.py", "lru_dict": "lru-dict"}
+
+
 for file in CURRENT_DIR.glob("*.whl"):
     package_name = file.name.split("-")[0]  # e.g. yarl-1.5.1 == yarl
+    special_resolved_name = SPECIAL_CASES.get(package_name)
+    if special_resolved_name:
+        package_name = special_resolved_name
+
     print(f"Found {package_name}, preparing to move.")
     move_to = CURRENT_DIR / package_name
     if not move_to.exists():
