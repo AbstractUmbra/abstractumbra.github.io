@@ -1,4 +1,4 @@
 discord.py[speed,voice]
 asyncpg
 cchardet
-lru-dict @ git+https://github.com/amitdev/lru-dict.git@master
+lru-dict @ git+https://github.com/amitdev/lru-dict.git@master#egg=lru-dict
