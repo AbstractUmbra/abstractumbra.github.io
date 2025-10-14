@@ -11,3 +11,19 @@ To allow pip to download from this index, you can use the `--extra-index-url` fl
 ```bash
 pip install discord.py[voice] --extra-index-url https://abstractumbra.github.io/pip/
 ```
+
+### Using uv
+
+You can also set this repository as a source in `uv`, either via the cli:
+```bash
+uv add discord.py[voice,speed] --extra-index-url https://abstractumbra.github.io/pip/
+```
+Or within your `pyproject.toml` file:
+
+```toml
+[[tool.uv.index]]
+name = "umbra"
+url = "https://about.abstractumbra.dev/pip/"
+```
+
+Specifying this index will add it as an extra index url as with the CLI for all uv operations. See the [documentation on that](https://docs.astral.sh/uv/concepts/indexes/) for more info.
