@@ -47,7 +47,7 @@ jobs:
       - name: Build wheels
         continue-on-error: true
         run: |
-          python -m pip wheel -w dist -r pip/wheel-requirements-${{ matrix.python-version }}.txt
+          python -m pip wheel --no-input -w dist -r pip/wheel-requirements-${{ matrix.python-version }}.txt
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
