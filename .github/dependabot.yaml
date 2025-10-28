@@ -4,12 +4,12 @@ updates:
     directory: "/pip"
     schedule:
       interval: "weekly"
-    reviewers:
+    assignees:
       - "AbstractUmbra"
 
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "weekly"
-    reviewers:
+    assignees:
       - "AbstractUmbra"
