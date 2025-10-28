@@ -203,12 +203,12 @@
         <li>
             <span class="material-icons">description</span>
             <a
-                href="https://abstractumbra.github.io/pip/README.md#sha256=003cff2d5cf78f362a184d780a92e9edaf348c6fc142c76e43b9611590e43b4f">README.md</a>
+                href="https://abstractumbra.github.io/pip/README.md#sha256=37a1bb464eda2ac28bc39a17aac62c45799ba55f1dbf0d68127cc2c5ee88c06b">README.md</a>
         </li>
         <li>
             <span class="material-icons">description</span>
             <a
-                href="https://abstractumbra.github.io/pip/cleanup_artifacts.py#sha256=902ed620941638fa9b20bd0c4fee159ed1d6814616780d8e063ee84eae4a65ab">cleanup_artifacts.py</a>
+                href="https://abstractumbra.github.io/pip/cleanup_artifacts.py#sha256=246725be6d19b1aa7d030ed21b17efbe351e4a081d26794c3a9ce6d547588532">cleanup_artifacts.py</a>
         </li>
         <li>
             <span class="material-icons">description</span>
@@ -218,7 +218,7 @@
         <li>
             <span class="material-icons">description</span>
             <a
-                href="https://abstractumbra.github.io/pip/index.html#sha256=193178a130cf74b131cb74018889c81a6172420ad750ed913b2e5f81e7cf097e">index.html</a>
+                href="https://abstractumbra.github.io/pip/index.html#sha256=9bdba13831f8a93a2c258d193bfbc9bfb3fa2e27d1d09fd775f2d20d0db6a046">index.html</a>
         </li>
         <li>
             <span class="material-icons">description</span>
@@ -264,6 +264,16 @@
         <p>To allow pip to download from this index, you can use the <code>--extra-index-url</code> flag, e.g.:</p>
         <pre><code class="lang-bash">pip install discord.py[voice] --extra-index-url https://abstractumbra.github.io/pip/
         </code></pre>
+        <h3>Using uv</h3>
+        <p>You can also set this repository as a source in <code>uv</code>, either via the cli:</p>
+        <pre><code class="lang-bash">uv add discord.py[voice,speed] --extra-index-url https://abstractumbra.github.io/pip/
+        </code></pre>
+        <p>Or within your <code>pyproject.toml</code> file:</p>
+        <pre><code class="lang-toml">[[tool.uv.index]]
+        name = &quot;umbra&quot;
+        url = &quot;https://about.abstractumbra.dev/pip/&quot;
+        </code></pre>
+        <p>Specifying this index will add it as an extra index url as with the CLI for all uv operations. See the <a href="https://docs.astral.sh/uv/concepts/indexes/">documentation on that</a> for more info.</p>
 
 </body>
 
