@@ -11,7 +11,7 @@ def resolve_filename(name: str) -> str:
     if not resolved:
         return name
 
-    return name.replace(split_name, resolved, count=1)
+    return name.replace(split_name, resolved, 1)
 
 
 for file in CURRENT_DIR.glob("*.whl"):
