@@ -42,7 +42,7 @@ jobs:
 
       - name: Python Prereqs
         run: |
-          python -m pip install -U wheel setuptools pip Cython
+          python -m pip install -U wheel==0.45.1 setuptools==80.9.0 pip Cython==3.1.4
 
       - name: Build wheels
         continue-on-error: true
