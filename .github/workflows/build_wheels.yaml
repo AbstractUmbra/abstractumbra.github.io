@@ -11,6 +11,7 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   build_wheels:
@@ -45,20 +46,20 @@ jobs:
           python -m pip install -U wheel setuptools pip Cython
 
       - name: Build wheels
-        continue-on-error: true
+        id: build-wheels
         run: |
           python -m pip wheel --no-input -w dist -r pip/wheel-requirements-${{ matrix.python-version }}.txt
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
-        if: ${{ always() }}
+        if: steps.build-wheels.outcome == 'success' || steps.build-wheels.outcome == 'failure'
         with:
           name: dist-${{matrix.os}}-${{matrix.python-version}}
           path: |
             dist/*.whl
 
   cleanup_and_commit:
-    if: ${{ always() }}
+    if: success() || failure()
     needs: [build_wheels]
     runs-on: ubuntu-latest
 
