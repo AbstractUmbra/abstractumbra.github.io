@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import hashlib
 import pathlib
 
@@ -12,7 +10,7 @@ TEMPLATE: Template = ENVIRONMENT.get_template("template.html")
 
 FILETYPE_ICONS = {".whl": "settings_applications"}
 
-ENVIRONMENT.globals.update(
+ENVIRONMENT.globals.update(  # pyright: ignore[reportUnknownMemberType] # we lie
     Path=pathlib.Path,
     FILETYPE_ICONS=FILETYPE_ICONS,
 )
@@ -39,7 +37,7 @@ if __name__ == "__main__":
         if readme_file.exists():
             # Render the README
             with readme_file.open("r", encoding="utf-8") as fp:
-                readme: str | None = mistune.markdown(fp.read())
+                readme = mistune.markdown(fp.read())
         else:
             readme = None
 

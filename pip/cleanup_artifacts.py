@@ -28,5 +28,3 @@ for file in CURRENT_DIR.glob("*.whl"):
     new_path = move_to / filename
     print(f"Moving file to {new_path}")
     file.replace(new_path)
-else:
-    print("No files found to work on.")
