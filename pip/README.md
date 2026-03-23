@@ -8,14 +8,14 @@ Gorialis styled the page originally based on how Apache automatically generates 
 
 To allow pip to download from this index, you can use the `--extra-index-url` flag, e.g.:
 
-```bash
+```sh
 pip install discord.py[voice] --extra-index-url https://abstractumbra.github.io/pip/
 ```
 
 ### Using uv
 
 You can also set this repository as a source in `uv`, either via the cli:
-```bash
+```sh
 uv add discord.py[voice,speed] --extra-index-url https://abstractumbra.github.io/pip/
 ```
 Or within your `pyproject.toml` file:
