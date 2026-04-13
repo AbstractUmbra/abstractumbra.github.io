@@ -24,7 +24,7 @@ jobs:
         python-version: ["3.10.x", "3.11.x", "3.12.x", "3.13.x", "3.14.x"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         name: Install Python on ${{ matrix.python-version }} with ${{ matrix.os }}
         with:
@@ -51,7 +51,7 @@ jobs:
           python -m pip wheel --no-input -w dist -r pip/wheel-requirements-${{ matrix.python-version }}.txt
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: steps.build-wheels.outcome == 'success' || steps.build-wheels.outcome == 'failure'
         with:
           name: dist-${{matrix.os}}-${{matrix.python-version}}
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 2
 
@@ -74,7 +74,7 @@ jobs:
             git reset --hard HEAD^;
           fi
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         name: Download built wheels
         with:
           path: ./pip/
