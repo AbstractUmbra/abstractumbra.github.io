@@ -1,9 +1,11 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: "/pip"
+    directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 12
     assignees:
       - "AbstractUmbra"
 
