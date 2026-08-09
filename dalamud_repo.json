@@ -13,7 +13,7 @@
             "targeting"
         ],
         "DalamudApiLevel": 15,
-        "AssemblyVersion": "4.0.2.17",
+        "AssemblyVersion": "0.0.1",
         "DownloadLinkInstall": "https://github.com/AbstractUmbra/Gravefinder/releases/latest/download/latest.zip",
         "DownloadLinkUpdate": "https://github.com/AbstractUmbra/Gravefinder/releases/latest/download/latest.zip",
         "LastUpdated": 1786253128
