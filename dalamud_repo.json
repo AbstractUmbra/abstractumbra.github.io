@@ -12,10 +12,11 @@
             "dead",
             "targeting"
         ],
+        "Changelog": "v0.0.0.3\n\n- Add toggle for preferring party members in dead player searching.",
         "DalamudApiLevel": 15,
-        "AssemblyVersion": "0.0.0.2",
+        "AssemblyVersion": "0.0.0.3",
         "DownloadLinkInstall": "https://github.com/AbstractUmbra/Gravefinder/releases/latest/download/latest.zip",
         "DownloadLinkUpdate": "https://github.com/AbstractUmbra/Gravefinder/releases/latest/download/latest.zip",
-        "LastUpdated": 1786253128
+        "LastUpdated": 1786490555
     }
 ]
